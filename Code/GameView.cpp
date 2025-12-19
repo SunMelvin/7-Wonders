@@ -375,7 +375,6 @@ namespace SevenWondersDuel {
             idx++;
         }
         printLine('-');
-        // [Update 1] 在奇迹轮抽阶段也显示日志，以便观察 AI 操作
         renderActionLog(model.gameLog);
         renderErrorMessage();
         renderCommandHelp(model.currentPlayerIndex == 0 ? GameState::WONDER_DRAFT_PHASE_1 : GameState::WONDER_DRAFT_PHASE_1);
@@ -427,16 +426,19 @@ namespace SevenWondersDuel {
         renderCommandHelp(GameState::WAITING_FOR_DISCARD_BUILD);
     }
 
+    // [Update] 优化提示信息
     void GameView::renderStartPlayerSelect(const GameModel& model) {
         clearScreen();
         printLine('='); printCentered("CHOOSE STARTING PLAYER"); printLine('=');
-        std::cout << "  \033[1;33m[" << model.getCurrentPlayer()->name << "]\033[0m\n";
-        std::cout << "  Who should start the next Age?\n";
-        std::cout << "  [1] Me (" << model.getCurrentPlayer()->name << ")\n";
-        std::cout << "  [2] Opponent (" << model.getOpponent()->name << ")\n";
+        std::cout << "  \033[1;33m[" << model.getCurrentPlayer()->name << "]\033[0m decides who starts the next Age.\n";
+        std::cout << "  (Decision based on military strength or last played turn)\n\n";
+        std::cout << "  Available Commands:\n";
+        std::cout << "  > \033[32mchoose me\033[0m        (You take the first turn)\n";
+        std::cout << "  > \033[32mchoose opponent\033[0m  (" << model.getOpponent()->name << " takes the first turn)\n";
         printLine('-');
         renderErrorMessage();
-        renderCommandHelp(GameState::WAITING_FOR_START_PLAYER_SELECTION);
+        // 修改 help 提示，不显示
+        std::cout << " [CMD] Input command directly above.\n";
     }
 
     // ==========================================================
@@ -485,7 +487,6 @@ namespace SevenWondersDuel {
         }
     }
 
-    // [Updated] 支持传入 state
     void GameView::renderGameForAI(const GameModel& model, GameState state) {
         renderGame(model, state);
     }
@@ -498,11 +499,10 @@ namespace SevenWondersDuel {
         clearScreen();
         printLine('='); printCentered("DETAIL: " + p.name);
 
-        // [Update 3] 弃牌收益计算
         int discardValue = 2 + p.getCardCount(CardType::COMMERCIAL);
 
         std::cout << " [1] BASIC: Coins " << p.coins << " | VP " << p.getScore(opp) << "\n";
-        std::cout << "     \033[33mDiscard Value: " << discardValue << " coins\033[0m\n"; // 新增显示
+        std::cout << "     \033[33mDiscard Value: " << discardValue << " coins\033[0m\n";
 
         std::cout << " [2] RESOURCES: " << formatResourcesCompact(p) << "\n";
         std::cout << "     Buy Costs (W/C/S/G/P): ";
@@ -578,7 +578,6 @@ namespace SevenWondersDuel {
 
             if (cmd == "log") { renderFullLog(model.gameLog); continue; }
 
-            // [Update 2] detail <1/2>
             if (cmd == "detail") {
                 int pIdx = -1;
                 if (arg1 == "1") pIdx = 0;
@@ -587,7 +586,6 @@ namespace SevenWondersDuel {
                 if (pIdx != -1) {
                     renderPlayerDetailFull(*model.players[pIdx], *model.players[1-pIdx]);
                 } else {
-                    // Default behavior (show current)
                     renderPlayerDetailFull(*model.getCurrentPlayer(), *model.getOpponent());
                 }
                 continue;
