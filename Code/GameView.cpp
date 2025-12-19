@@ -244,10 +244,15 @@ namespace SevenWondersDuel {
             const auto& rowSlots = rows[r];
             if (rowSlots.empty()) continue;
             int rowLen = rowSlots.size() * 11;
+            bool isAge3SplitRow = (model.currentAge == 3 && r == 3);
+            if (isAge3SplitRow) {
+                rowLen += 11;
+            }
             int padding = (80 - rowLen) / 2;
             std::cout << std::string(std::max(0, padding), ' ');
 
-            for (const auto* slot : rowSlots) {
+            for (size_t i = 0; i < rowSlots.size(); ++i) {
+                const auto* slot = rowSlots[i];
                 int absIndex = (&(*slot) - &slots[0]) + 1;
                 if (slot->isRemoved) std::cout << "           ";
                 else if (!slot->isFaceUp) std::cout << " [\033[90m ? ? ? \033[0m] ";
@@ -257,6 +262,9 @@ namespace SevenWondersDuel {
                     std::string label = " C" + std::to_string(absIndex) + " ";
                     while(label.length() < 7) label += " ";
                     std::cout << " [" << getCardColorCode(c->type) << label << getResetColor() << "] ";
+                }
+                if (isAge3SplitRow && i == 0) {
+                    std::cout << "           ";
                 }
             }
             std::cout << "\n";
