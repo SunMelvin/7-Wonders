@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/Global.h"
+#include "Global.h"
 
 namespace SevenWondersDuel {
 

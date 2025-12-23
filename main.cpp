@@ -1,8 +1,8 @@
-#include "SevenWondersDuel/GameController.h"
-#include "SevenWondersDuel/GameView.h"
-#include "SevenWondersDuel/InputManager.h"
-#include "SevenWondersDuel/Agent.h"
-#include "SevenWondersDuel/ScoringManager.h"
+#include "GameController.h"
+#include "GameView.h"
+#include "InputManager.h"
+#include "Agent.h"
+#include "ScoringManager.h"
 #include <iostream>
 #include <memory>
 #include <limits>

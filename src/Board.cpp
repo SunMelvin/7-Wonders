@@ -1,5 +1,5 @@
-#include "SevenWondersDuel/Board.h"
-#include "SevenWondersDuel/Player.h"
+#include "Board.h"
+#include "Player.h"
 #include <algorithm>
 #include <cmath>
 

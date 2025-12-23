@@ -1,9 +1,9 @@
 #ifndef SEVEN_WONDERS_DUEL_RULESENGINE_H
 #define SEVEN_WONDERS_DUEL_RULESENGINE_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/Player.h"
-#include "SevenWondersDuel/Board.h"
+#include "Global.h"
+#include "Player.h"
+#include "Board.h"
 
 namespace SevenWondersDuel {
 

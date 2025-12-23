@@ -2,8 +2,8 @@
 // Created by choyichi on 2025/12/23.
 //
 
-#include "SevenWondersDuel/GameStateLogic.h"
-#include "SevenWondersDuel/GameController.h"
+#include "GameStateLogic.h"
+#include "GameController.h"
 #include <algorithm>
 
 namespace SevenWondersDuel {

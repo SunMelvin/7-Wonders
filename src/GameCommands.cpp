@@ -2,8 +2,8 @@
 // Created by choyichi on 2025/12/23.
 //
 
-#include "SevenWondersDuel/GameCommands.h"
-#include "SevenWondersDuel/GameController.h"
+#include "GameCommands.h"
+#include "GameController.h"
 #include <algorithm>
 #include <iostream>
 

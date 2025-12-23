@@ -1,7 +1,7 @@
-#include "SevenWondersDuel/Agent.h"
-#include "SevenWondersDuel/GameController.h"
-#include "SevenWondersDuel/GameView.h"
-#include "SevenWondersDuel/InputManager.h"
+#include "Agent.h"
+#include "GameController.h"
+#include "GameView.h"
+#include "InputManager.h"
 #include <iostream>
 #include <random>
 #include <algorithm>

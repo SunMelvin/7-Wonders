@@ -2,9 +2,9 @@
 // Created by choyichi on 2025/12/15.
 //
 
-#include "SevenWondersDuel/EffectSystem.h"
-#include "SevenWondersDuel/Player.h"
-#include "SevenWondersDuel/TinyJson.h"
+#include "EffectSystem.h"
+#include "Player.h"
+#include "TinyJson.h"
 #include <algorithm>
 #include <sstream>
 

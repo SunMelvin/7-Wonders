@@ -5,9 +5,9 @@
 #ifndef SEVEN_WONDERS_DUEL_PLAYER_H
 #define SEVEN_WONDERS_DUEL_PLAYER_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/Card.h"
-#include "SevenWondersDuel/EffectSystem.h" // 包含 Effect 定义
+#include "Global.h"
+#include "Card.h"
+#include "EffectSystem.h" // 包含 Effect 定义
 #include <vector>
 #include <map>
 #include <set>

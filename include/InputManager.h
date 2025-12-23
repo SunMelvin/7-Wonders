@@ -1,9 +1,9 @@
 #ifndef SEVEN_WONDERS_DUEL_INPUTMANAGER_H
 #define SEVEN_WONDERS_DUEL_INPUTMANAGER_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/GameController.h"
-#include "SevenWondersDuel/RenderContext.h"
+#include "Global.h"
+#include "GameController.h"
+#include "RenderContext.h"
 #include <string>
 #include <vector>
 #include <map>

@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/RenderContext.h"
+#include "RenderContext.h"
 
 namespace SevenWondersDuel {
 

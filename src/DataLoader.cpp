@@ -2,9 +2,9 @@
 // Created by choyichi on 2025/12/16.
 //
 
-#include "SevenWondersDuel/DataLoader.h"
-#include "SevenWondersDuel/TinyJson.h"
-#include "SevenWondersDuel/EffectSystem.h"
+#include "DataLoader.h"
+#include "TinyJson.h"
+#include "EffectSystem.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>

@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/GameController.h"
+#include "GameController.h"
 #include <algorithm>
 
 namespace SevenWondersDuel {

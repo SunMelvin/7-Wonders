@@ -5,10 +5,10 @@
 #ifndef SEVEN_WONDERS_DUEL_GAMECONTROLLER_H
 #define SEVEN_WONDERS_DUEL_GAMECONTROLLER_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/Player.h"
-#include "SevenWondersDuel/Board.h"
-#include "SevenWondersDuel/Card.h"
+#include "Global.h"
+#include "Player.h"
+#include "Board.h"
+#include "Card.h"
 #include <memory>
 #include <vector>
 #include <string>

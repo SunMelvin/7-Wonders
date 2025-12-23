@@ -5,8 +5,8 @@
 #ifndef SEVEN_WONDERS_DUEL_DATALOADER_H
 #define SEVEN_WONDERS_DUEL_DATALOADER_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/Card.h"
+#include "Global.h"
+#include "Card.h"
 #include <string>
 #include <vector>
 

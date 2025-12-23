@@ -5,8 +5,8 @@
 #ifndef SEVEN_WONDERS_DUEL_CARD_H
 #define SEVEN_WONDERS_DUEL_CARD_H
 
-#include "SevenWondersDuel/Global.h"
-#include "SevenWondersDuel/EffectSystem.h"
+#include "Global.h"
+#include "EffectSystem.h"
 #include <string>
 #include <vector>
 #include <memory>

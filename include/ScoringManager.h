@@ -1,8 +1,8 @@
 #ifndef SEVEN_WONDERS_DUEL_SCORINGMANAGER_H
 #define SEVEN_WONDERS_DUEL_SCORINGMANAGER_H
 
-#include "SevenWondersDuel/Player.h"
-#include "SevenWondersDuel/Board.h"
+#include "Player.h"
+#include "Board.h"
 
 namespace SevenWondersDuel {
 

@@ -5,7 +5,7 @@
 #ifndef SEVEN_WONDERS_DUEL_EFFECTSYSTEM_H
 #define SEVEN_WONDERS_DUEL_EFFECTSYSTEM_H
 
-#include "SevenWondersDuel/Global.h"
+#include "Global.h"
 #include <vector>
 #include <map>
 #include <string>

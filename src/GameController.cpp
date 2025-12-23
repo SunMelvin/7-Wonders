@@ -1,9 +1,9 @@
-#include "SevenWondersDuel/GameController.h"
-#include "SevenWondersDuel/DataLoader.h"
-#include "SevenWondersDuel/RulesEngine.h"
-#include "SevenWondersDuel/ScoringManager.h"
-#include "SevenWondersDuel/GameStateLogic.h"
-#include "SevenWondersDuel/GameCommands.h"
+#include "GameController.h"
+#include "DataLoader.h"
+#include "RulesEngine.h"
+#include "ScoringManager.h"
+#include "GameStateLogic.h"
+#include "GameCommands.h"
 #include <algorithm>
 #include <iostream>
 #include <random>

@@ -1,7 +1,7 @@
 #ifndef SEVEN_WONDERS_DUEL_RENDERCONTEXT_H
 #define SEVEN_WONDERS_DUEL_RENDERCONTEXT_H
 
-#include "SevenWondersDuel/Global.h"
+#include "Global.h"
 #include <map>
 #include <string>
 #include <vector>

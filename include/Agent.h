@@ -5,8 +5,8 @@
 #ifndef SEVEN_WONDERS_DUEL_AGENT_H
 #define SEVEN_WONDERS_DUEL_AGENT_H
 
-#include "SevenWondersDuel/GameController.h"
-#include "SevenWondersDuel/GameView.h"
+#include "GameController.h"
+#include "GameView.h"
 
 namespace SevenWondersDuel {
 

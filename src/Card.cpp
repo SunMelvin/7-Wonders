@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/Card.h"
+#include "Card.h"
 #include <algorithm>
 
 namespace SevenWondersDuel {

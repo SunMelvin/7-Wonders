@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/TinyJson.h"
+#include "TinyJson.h"
 
 namespace TinyJson {
 

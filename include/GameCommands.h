@@ -5,7 +5,7 @@
 #ifndef SEVEN_WONDERS_DUEL_GAMECOMMANDS_H
 #define SEVEN_WONDERS_DUEL_GAMECOMMANDS_H
 
-#include "SevenWondersDuel/Global.h"
+#include "Global.h"
 #include <memory>
 
 namespace SevenWondersDuel {

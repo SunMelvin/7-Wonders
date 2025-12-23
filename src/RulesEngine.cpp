@@ -1,4 +1,4 @@
-#include "SevenWondersDuel/RulesEngine.h"
+#include "RulesEngine.h"
 #include <cmath>
 
 namespace SevenWondersDuel {

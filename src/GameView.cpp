@@ -1,5 +1,5 @@
-#include "SevenWondersDuel/GameView.h"
-#include "SevenWondersDuel/ScoringManager.h"
+#include "GameView.h"
+#include "ScoringManager.h"
 #include <iostream>
 #include <iomanip>
 #include <vector>
