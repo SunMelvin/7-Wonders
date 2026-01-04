@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/15.
-//
-
 #include "Player.h"
 #include <limits>
 #include <numeric>

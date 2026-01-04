@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/15.
-//
-
 #include "EffectSystem.h"
 #include "Player.h"
 #include <nlohmann/json.hpp>

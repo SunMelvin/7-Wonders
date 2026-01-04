@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/23.
-//
-
 #include "GameStateLogic.h"
 #include "GameController.h"
 #include <algorithm>

@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/23.
-//
-
 #ifndef SEVEN_WONDERS_DUEL_GAMESTATELOGIC_H
 #define SEVEN_WONDERS_DUEL_GAMESTATELOGIC_H
 

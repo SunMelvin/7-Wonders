@@ -16,8 +16,7 @@ set(SOURCES
     src/GameCommands.cpp
     src/GameController.cpp
     src/GameFactory.cpp
-    src/GameModel.cpp
-    src/GameStateLogic.cpp
+        src/GameStateLogic.cpp
     src/GameView.cpp
     src/Global.cpp
     src/InputManager.cpp
