@@ -35,6 +35,12 @@ namespace SevenWondersDuel {
 		Action decideAction(GameController& controller, GameView& view, InputManager& input) override;
 	};
 
+	// AI玩家：贪心策略，优先购买分数最高的蓝卡
+	class GreedyAIAgent : public IPlayerAgent {
+	public:
+		Action decideAction(GameController& controller, GameView& view, InputManager& input) override;
+	};
+
 }
 
 #endif // SEVEN_WONDERS_DUEL_AGENT_H

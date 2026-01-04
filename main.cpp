@@ -50,21 +50,32 @@ int main() {
     std::string p2Name = "Player 2";
 
     if (modeChoice == 1) {
+        // Human vs Human
         agent1 = std::make_unique<HumanAgent>();
         agent2 = std::make_unique<HumanAgent>();
         p1Name = view.promptPlayerName(1, "Player 1");
         p2Name = view.promptPlayerName(2, "Player 2");
-    } else if (modeChoice == 3) {
-        agent1 = std::make_unique<RandomAIAgent>();
-        agent2 = std::make_unique<RandomAIAgent>();
-        p1Name = "AI Alpha";
-        p2Name = "AI Beta";
-    } else {
-        // Default: Human vs AI
+    } else if (modeChoice == 2) {
+        // Human vs Random AI
         agent1 = std::make_unique<HumanAgent>();
         agent2 = std::make_unique<RandomAIAgent>();
         p1Name = view.promptPlayerName(1, "Player 1");
-        p2Name = "AI Bot";
+        p2Name = "Random AI";
+    } else if (modeChoice == 3) {
+        // Human vs Greedy AI
+        agent1 = std::make_unique<HumanAgent>();
+        agent2 = std::make_unique<GreedyAIAgent>();
+        p1Name = view.promptPlayerName(1, "Player 1");
+        p2Name = "Greedy AI";
+    } else if (modeChoice == 4) {
+        // AI vs AI (Watch Mode)
+        agent1 = std::make_unique<RandomAIAgent>();
+        agent2 = std::make_unique<GreedyAIAgent>();
+        p1Name = "Random AI";
+        p2Name = "Greedy AI";
+    } else {
+        // Quit or invalid - exit
+        return 0;
     }
 
     // 加载数据 (请确保 gamedata.json 存在于运行目录)

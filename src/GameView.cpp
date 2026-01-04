@@ -170,9 +170,10 @@ namespace SevenWondersDuel {
         std::cout << "\n";
         std::string indent(28, ' ');
         std::cout << indent << "[1] Human vs Human\n";
-        std::cout << indent << "[2] Human vs AI (Recommended)\n";
-        std::cout << indent << "[3] AI vs AI (Watch Mode)\n";
-        std::cout << indent << "[4] Quit Game\n";
+        std::cout << indent << "[2] Human vs Random AI\n";
+        std::cout << indent << "[3] Human vs Greedy AI\n";
+        std::cout << indent << "[4] Random AI vs Greedy AI (Watch Mode)\n";
+        std::cout << indent << "[5] Quit Game\n";
         printLine('=', 80);
         std::cout << "  Input > ";
     }
