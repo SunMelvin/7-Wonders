@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/16.
-//
-
 #ifndef SEVEN_WONDERS_DUEL_AGENT_H
 #define SEVEN_WONDERS_DUEL_AGENT_H
 

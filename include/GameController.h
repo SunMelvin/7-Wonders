@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2025/12/15.
-//
-
 #ifndef SEVEN_WONDERS_DUEL_GAMECONTROLLER_H
 #define SEVEN_WONDERS_DUEL_GAMECONTROLLER_H
 
@@ -143,7 +139,7 @@ namespace SevenWondersDuel {
         CardType m_pendingDestructionType = CardType::CIVILIAN;
 
         void updateStateLogic(GameState newState);
-        void loadData(const std::string& path);
+
         void setupAge(int age);
         void prepareNextAge();
         std::vector<Card*> prepareDeckForAge(int age);

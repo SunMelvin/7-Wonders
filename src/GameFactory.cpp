@@ -1,7 +1,3 @@
-//
-// Created by choyichi on 2026/01/02.
-//
-
 #include "GameFactory.h"
 #include "EffectSystem.h"
 #include "CardBuilder.h"
