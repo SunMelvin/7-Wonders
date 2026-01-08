@@ -13,7 +13,10 @@ namespace SevenWondersDuel {
     class Player;
     class Card;
 
-    // 统一费用结构
+    /**
+     * @brief 统一资源费用结构
+     * 描述建造卡牌或奇迹所需的成本，包括金币和多种资源组合。
+     */
     class ResourceCost {
     private:
         int m_coins = 0;
@@ -27,23 +30,33 @@ namespace SevenWondersDuel {
         
         void setCoins(int coins) { m_coins = coins; }
         void setResources(const std::map<ResourceType, int>& res) { m_resources = res; }
+        
+        /**
+         * @brief 增加一种资源需求
+         */
         void addResource(ResourceType type, int count) { m_resources[type] += count; }
 
+        /**
+         * @brief 检查是否免费 (无金币且无资源需求)
+         */
         bool isFree() const { return m_coins == 0 && m_resources.empty(); }
     };
 
-    // 用于金字塔布局的节点
+    /**
+     * @brief 金字塔卡槽节点
+     * 用于构建游戏桌面上的卡牌金字塔结构。每个 Slot 包含一张卡，并记录其位置状态和依赖关系。
+     */
     class CardSlot {
     private:
-        std::string m_id;      // 对应 Card 的 ID (Cache)
-        Card* m_cardPtr = nullptr;
-        bool m_isFaceUp = false;
-        bool m_isRemoved = false;
+        std::string m_id;             // 对应 Card 的 ID (缓存，方便查找)
+        Card* m_cardPtr = nullptr;    // 指向实际 Card 数据的指针
+        bool m_isFaceUp = false;      // 是否正面朝上 (可见)
+        bool m_isRemoved = false;     // 是否已被玩家拿走
 
-        int m_row = 0;
-        int m_index = 0; // 行内索引
+        int m_row = 0;                // 在金字塔中的行号 (从上往下)
+        int m_index = 0;              // 行内索引 (从左往右)
 
-        std::vector<int> m_coveredBy; // 压着我的牌的 Slot 索引
+        std::vector<int> m_coveredBy; // 压着当前牌的 Slot 索引列表 (依赖关系)
 
     public:
         CardSlot() = default;
@@ -63,24 +76,36 @@ namespace SevenWondersDuel {
         void setRow(int r) { m_row = r; }
         void setIndex(int i) { m_index = i; }
         
+        /**
+         * @brief 添加一个压在上面的卡槽索引
+         */
         void addCoveredBy(int index) { m_coveredBy.push_back(index); }
+
+        /**
+         * @brief 通知有一个压在上面的卡被移除了
+         * 当所有压在上面的卡都被移除后，此卡会自动翻面 (FaceUp = true)。
+         * @return 如果此操作导致卡牌翻面，返回 true
+         */
         bool notifyCoveringRemoved(int index);
     };
 
-    // 卡牌定义
+    /**
+     * @brief 卡牌实体类
+     * 存储卡牌的静态数据：名称、类型、费用、效果等。
+     */
     class Card {
     private:
         std::string m_id;
         std::string m_name;
-        int m_age = 0; // 1, 2, 3
+        int m_age = 0;             // 所属时代 (1, 2, 3)
         CardType m_type = CardType::CIVILIAN;
 
-        ResourceCost m_cost;
+        ResourceCost m_cost;       // 建造费用
 
-        std::string m_chainTag;          // 此卡提供的标记 (如 "MOON")
-        std::string m_requiresChainTag;  // 此卡需要的标记 (如 "MOON" -> 免费)
+        std::string m_chainTag;          // 此卡提供的连锁标记 (如 "MOON")
+        std::string m_requiresChainTag;  // 此卡需要的连锁标记 (如有此标记则免费)
 
-        std::vector<std::shared_ptr<IEffect>> m_effects;
+        std::vector<std::shared_ptr<IEffect>> m_effects; // 获取此卡后的即时或被动效果
 
     public:
         Card() = default;
@@ -103,10 +128,17 @@ namespace SevenWondersDuel {
         void setRequiresChainTag(const std::string& tag) { m_requiresChainTag = tag; }
         void setEffects(std::vector<std::shared_ptr<IEffect>> effects) { m_effects = std::move(effects); }
 
+        /**
+         * @brief 计算此卡提供的胜利点数
+         * 部分卡牌分数依赖于玩家状态 (如公会卡)。
+         */
         int getVictoryPoints(const Player* self, const Player* opponent) const;
     };
 
-    // 奇迹定义
+    /**
+     * @brief 奇迹实体类
+     * 奇迹是一种特殊的“卡牌”，在游戏开始时轮抽获得，建造后提供强力效果。
+     */
     class Wonder {
     private:
         std::string m_id;
@@ -115,8 +147,8 @@ namespace SevenWondersDuel {
 
         std::vector<std::shared_ptr<IEffect>> m_effects;
 
-        bool m_isBuilt = false;
-        const Card* m_builtOverlayCard = nullptr;
+        bool m_isBuilt = false;                  // 是否已建造
+        const Card* m_builtOverlayCard = nullptr; // 用于建造该奇迹所垫在下面的卡牌 (仅作记录)
 
     public:
         Wonder() = default;
@@ -133,8 +165,20 @@ namespace SevenWondersDuel {
         void setCost(const ResourceCost& cost) { m_cost = cost; }
         void setEffects(std::vector<std::shared_ptr<IEffect>> effects) { m_effects = std::move(effects); }
 
+        /**
+         * @brief 标记奇迹为已建造
+         * @param overlay 垫在奇迹下面的那张牌 (通常来自于金字塔)
+         */
         void build(const Card* overlay);
+        
+        /**
+         * @brief 重置奇迹状态 (用于新游戏初始化)
+         */
         void reset();
+
+        /**
+         * @brief 计算奇迹提供的胜利点数
+         */
         int getVictoryPoints(const Player* self, const Player* opponent) const;
     };
 
